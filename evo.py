@@ -8,10 +8,10 @@ pokemon, moves = load_files()
 #print_dna()
 #print pokemon["snorlax"], pokemon["snorlax"].movepool
 
-# Not really Pythonic, but still realy awesome
+# Not really Pythonic, but still really awesome
 print   (
             pokemon.values()
-            | where(lambda x: x.type1 == "Bug")
-            #| where(lambda x: x.type2 == "Flying")
+            | where(lambda x: x.type1 == "Grass")
+            | where(lambda x: x.type2 == "Steel")
             | as_list
         )

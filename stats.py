@@ -1,5 +1,5 @@
 from csv_loader import load_statistics, load_pokemons
-from poke_types import getUsageDict
+from type_modifiers import getUsageDict
 
 stats = load_statistics()
 
