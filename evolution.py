@@ -1,8 +1,21 @@
-from random import randint
+from random import randint, random
 from specimen import specimen
 
 def mutate(moveset, probability, magnitude):
     pass
+
+def get_random_indexes(max, probability):
+    if max < 1:
+        return []
+    else:
+        indexes = []
+        for i in range(0, max):
+            if(random() < probability):
+                indexes.append(True)
+            else:
+                indexes.append(False)
+        return indexes
+    
 
 def reproduce_even(parent1, parent2):
     '''Creates a child with half of each parent moves.'''

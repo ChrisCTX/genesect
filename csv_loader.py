@@ -42,6 +42,7 @@ def load_movepools(pokemons):
         line_list = line.split(',', 1)
         name = line_list[0]
         pool = line_list[1].split(',')
+        pool[len(pool)-1] = str.strip(pool[len(pool)-1])#eliminate newline char
         pokemons[name].movepool = pool
         
     movepool_csv_file.close()

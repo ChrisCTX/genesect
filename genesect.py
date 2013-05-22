@@ -4,6 +4,7 @@ from specimen import specimen as Individual
 from eyecandy import print_dna, print_name
 from random import choice
 from pipe import *
+from evolution import reproduce_even, reproduce_random, get_random_indexes
 
 moves = load_moves()
 
@@ -28,6 +29,17 @@ def getRandomMoveset(pokemon, size, spectrum="m"):
         moveset.append(getRandomMove(pokemon, spectrum))
     return  moveset
 
+def mutateRandom(individual, pkmnspecies, probability, spectrum = "m"):
+    length = len(individual)
+    indexes = get_random_indexes(length , probability)
+    mutant = []
+    for i in range(0, length):
+        if(indexes[i]):
+            mutant.append(getRandomMove(pkmnspecies, spectrum))
+        else:
+            mutant.append(individual[i])
+    return mutant
+
 VERBOSE = 1
 POPULATION_SIZE = 10
 MAX_GENERATIONS = 100
@@ -41,7 +53,8 @@ pokemon = pokedex[species]
 #number = int(raw_input("How many moves to optimize for? (minimum 2) \n"))
 number = 4
 spectrum = "p"
-
+reproduce = reproduce_even
+mutate = mutateRandom
 
 # Generate the initial population of individuals randomly - first Generation
 population = [Individual(species, getRandomMoveset(pokemon, number, spectrum), 0)

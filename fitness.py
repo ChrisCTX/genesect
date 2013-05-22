@@ -27,8 +27,9 @@ def fitness(pokemon, moveset):
     super_effective_coverage = getTypeCoverage(moveset)
     sample = get_sample(stats)
     for covered_type in super_effective_coverage:
-        average_fitness *= sample / stats[covered_type] 
-
+        average_fitness *= sample / stats[covered_type]
+    if average_fitness <= 0:
+        average_fitness = 1
     return log(average_fitness)
 
 
