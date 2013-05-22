@@ -42,8 +42,8 @@ def mutateRandom(individual, pkmnspecies, probability, spectrum = "m"):
     return mutant
 
 VERBOSE = 1
-POPULATION_SIZE = 20
-MAX_GENERATIONS = 50
+POPULATION_SIZE = 40
+MAX_GENERATIONS = 500
 
 print_name()
 print_dna()
@@ -53,7 +53,7 @@ species = str(raw_input("What pokemon would you like to Optimize? \n"))
 pokemon = pokedex[species]
 #number = int(raw_input("How many moves to optimize for? (minimum 2) \n"))
 number = 4
-spectrum = "p"
+spectrum = "s"
 mutatechance = 0.5
 reproduce = reproduce_even
 mutate = mutateRandom
