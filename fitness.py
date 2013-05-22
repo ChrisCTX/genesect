@@ -29,6 +29,11 @@ def fitness(pokemon, moveset):
     for covered_type in super_effective_coverage:
         average_fitness *= sample / stats[covered_type] 
 
+    # Ghetto patch, sometimes it goes negative and
+    # log doesn't like that one bit.
+    if average_fitness <= 0:
+        average_fitness = 1
+
     return log(average_fitness)
 
 

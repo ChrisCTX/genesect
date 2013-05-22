@@ -28,7 +28,7 @@ def getRandomMoveset(pokemon, size, spectrum="m"):
         moveset.append(getRandomMove(pokemon, spectrum))
     return  moveset
 
-VERBOSE = 1
+VERBOSE = 0
 POPULATION_SIZE = 10
 MAX_GENERATIONS = 100
 
